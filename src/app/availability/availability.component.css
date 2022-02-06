@@ -2,8 +2,8 @@ td{text-align: center;}
 .no-bg{background: white;color: black;}
 .table-dark td, .table-dark th, .table-dark thead th {border-color: white !important;}
 .span-tag{text-align: center;font-size: 25px;line-height: 50px;font-weight: 600;}
-.deactivate{color: rgba(112,116,120,.1);;}
-.active{color: rgba(112,116,120,1);}
+.deactivate{color: rgba(87, 87, 87, 0.1);}
+.active{color: white !important;}
 
 .col1{background: #fde9e8;}
 .col2{background: #fde9e8;}
@@ -12,4 +12,6 @@ td{text-align: center;}
 .col5{background: #fde9e8;}
 .col1{background: #fde9e8;}
 .col1{background: #fde9e8;}
+
+.fa-check{color: #545454;}
 

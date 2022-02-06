@@ -11,30 +11,31 @@
     </tr>
     <tr>
       <td class="no-bg" style="text-align:right">Morning</td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
+      <td (click)="setValue('ml')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('ml')}"></i></td>
+      <td (click)="setValue('mm')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('mm')}"></i></td>
+      <td (click)="setValue('mm2')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('mm2')}"></i></td>
+      <td (click)="setValue('mj')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('mj')}"></i></td>
+      <td (click)="setValue('mv')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('mv')}"></i></td>
+      <td (click)="setValue('ms')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('ms')}"></i></td>
     </tr>
     <tr>
       <td class="no-bg" style="text-align:right">Afternoon</td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check" [ngClass]="{'active': 1===1}"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
+      <td (click)="setValue('al')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('al')}"></i></td>
+      <td (click)="setValue('am')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('am')}"></i></td>
+      <td (click)="setValue('am2')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('am2')}"></i></td>
+      <td (click)="setValue('aj')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('aj')}"></i></td>
+      <td (click)="setValue('av')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('av')}"></i></td>
+      <td (click)="setValue('as')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('as')}"></i></td>
     </tr>
     <tr>
       <td class="no-bg" style="text-align:right">Evening</td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
-      <td><i class="fa fa-check"></i></td>
+      <td (click)="setValue('el')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('el')}"></i></td>
+      <td (click)="setValue('em')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('em')}"></i></td>
+      <td (click)="setValue('em2')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('em2')}"></i></td>
+      <td (click)="setValue('ej')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('ej')}"></i></td>
+      <td (click)="setValue('ev')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('ev')}"></i></td>
+      <td (click)="setValue('es')"><i class="fa fa-check" [ngClass]="{'active': checkNotInArray('es')}"></i></td>
     </tr>
   </tbody>
 </table>
+<button type="button" class="btn btn-primary float-right">Save</button>
