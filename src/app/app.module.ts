@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgSelectModule } from '@ng-select/ng-select'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,15 +42,17 @@ import { AVAILABILITYComponent } from './availability/availability.component';
     ORGANIZATIONSComponent,
     CONSUMPTIONComponent,
     VARIOUSComponent,
-    AVAILABILITYComponent
+    AVAILABILITYComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgSelectModule
   ],
   providers: [FormData],
   bootstrap: [AppComponent]

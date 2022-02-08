@@ -1,1 +1,79 @@
-<p>media works!</p>
+<h4>Mes médias</h4>
+  <div class="row">
+    <div class="col">
+      <label>Quelles radios écoutez-vous régulièrement ?</label>
+      <select class="form-control" [multiple]="true">
+        <option></option>
+        <option value="1">Appartement</option>
+          <option value="2">Bateau</option>
+      </select>
+    </div>
+
+      <div class="col">
+        <label>Avez-vous des abonnements TV ? Lesquels ?</label>
+        <select class="form-control" [multiple]="true">
+          <option></option>
+          <option value="1">Locataire</option>
+        </select>
+      </div>
+
+    <div class="col">
+      <label>Quels magazines ou journaux lisez-vous régulièrement ?</label>
+      <select class="form-control" [multiple]="true">
+        <option></option>
+        <option value="1">Aucun</option>
+        <option value="2">Abri jardin</option>
+     </select>
+    </div>
+    <div class="col">
+      <label>Quel est votre fournisseur internet ?</label>
+      <select class="form-control" [multiple]="true">
+        <option></option>
+        <option value="1">Oui</option>
+        <option value="2">Non</option>
+      </select>
+    </div>
+</div>
+<br>
+<h4>Ma téléphonie</h4>
+<div class="row">
+  <div class="col">
+    <label>uel est l'opérateur de votre téléphone mobile ?</label>
+    <select class="form-control" [multiple]="true">
+      <option></option>
+      <option value="1">Abri jardin</option>
+   </select>
+  </div>
+    <div class="col">
+      <label>Marque de votre téléphone portable personnel</label>
+      <select class="form-control">
+        <option></option>
+        <option value="1">Abri jardin</option>
+     </select>
+    </div>
+  <div class="col"></div>
+  <div class="col">
+    <ng-select [multiple]="true" [(ngModel)]="selectedCars">
+      <ng-option *ngFor="let car of cars" [value]="car.id" [disabled]="car.disabled">{{car.name}}</ng-option>
+      <ng-option [value]="'custom'">Custom</ng-option>
+  </ng-select>
+  </div>
+</div>
+
+
+<br>
+<div>
+  <div class="row">
+    <div class="col">
+        <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+
+    <div class="col">
+      <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
+      <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
+    </div>
+  </div>
+</div>
+

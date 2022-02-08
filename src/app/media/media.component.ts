@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./media.component.css']
 })
 export class MEDIAComponent implements OnInit {
-
+  selectedCars = [3];
+    cars = [
+        { id: 1, name: 'Volvo' },
+        { id: 2, name: 'Saab', disabled: true },
+        { id: 3, name: 'Opel' },
+        { id: 4, name: 'Audi' },
+    ];
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  toggleDisabled() {
+    const car: any = this.cars[1];
+    car.disabled = !car.disabled;
+  }
 }
