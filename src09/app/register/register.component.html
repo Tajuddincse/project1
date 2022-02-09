@@ -1,0 +1,61 @@
+<body>
+  <div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" [formGroup]="loginForm" (ngSubmit)="submit(loginForm.value)" class="form" method="post">
+                        <h3 class="text-center text-info">Register new user</h3>
+                        <div class="form-group">
+                          <label class="text-info">First Name:</label><br>
+                          <input type="text" formControlName="firstname" class="form-control">
+                        </div>
+                        <div *ngIf="loginForm.controls['firstname'].invalid && loginForm.controls['firstname'].touched" class="error">
+                          <div *ngIf="loginForm.controls['firstname'].errors.required">firstname is required.</div>
+                        </div>
+                        <div class="form-group">
+                          <label class="text-info">Last Name:</label><br>
+                          <input type="text" formControlName="lastname" class="form-control">
+                        </div>
+                        <div *ngIf="loginForm.controls['lastname'].invalid && loginForm.controls['lastname'].touched" class="error">
+                          <div *ngIf="loginForm.controls['lastname'].errors.required">lastname is required.</div>
+                        </div>
+                        <div class="form-group">
+                          <label class="text-info">Contact:</label><br>
+                          <input type="text" formControlName="contact" class="form-control">
+                        </div>
+                        <div *ngIf="loginForm.controls['contact'].invalid && loginForm.controls['contact'].touched" class="error">
+                          <div *ngIf="loginForm.controls['contact'].errors.required">contact is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info">Email:</label><br>
+                            <input type="text" formControlName="email" class="form-control">
+                        </div>
+                        <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched" class="error">
+                            <div *ngIf="loginForm.controls['email'].errors.required">Email is required.</div>
+                            <div *ngIf="loginForm.controls['email'].errors.pattern">Invalid email.</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info">Password:</label><br>
+                            <input type="text" formControlName="password" class="form-control">
+                        </div>
+                        <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="error">
+                            <div *ngIf="loginForm.controls['password'].errors.required">Name is required.</div>
+                        </div>
+                        <div class="form-group" style="padding-top: 16px;">
+                            <div class="row">
+                                <div class="col text-left">
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                </div>
+                                <div class="col text-right">
+                                    <a routerLink="/auth" routerLinkActive="true" class="text-info">Login here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

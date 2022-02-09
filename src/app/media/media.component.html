@@ -2,47 +2,44 @@
   <div class="row">
     <div class="col">
       <label>Quelles radios écoutez-vous régulièrement ?</label>
-      <select class="form-control" [multiple]="true">
-        <option></option>
-        <option value="1">Appartement</option>
-          <option value="2">Bateau</option>
-      </select>
+      <ng-select [multiple]="true" [(ngModel)]="selectedQuelles">
+        <ng-option *ngFor="let quell of quelles" [value]="quell.title">{{quell.title}}</ng-option>
+        <ng-option [value]="'custom'">Custom</ng-option>
+      </ng-select>
     </div>
 
       <div class="col">
         <label>Avez-vous des abonnements TV ? Lesquels ?</label>
-        <select class="form-control" [multiple]="true">
-          <option></option>
-          <option value="1">Locataire</option>
-        </select>
+        <ng-select [multiple]="true" [(ngModel)]="selectedavezVvous">
+          <ng-option *ngFor="let avez of avezVvous" [value]="avez.title">{{avez.title}}</ng-option>
+          <ng-option [value]="'custom'">Custom</ng-option>
+        </ng-select>
       </div>
 
     <div class="col">
       <label>Quels magazines ou journaux lisez-vous régulièrement ?</label>
-      <select class="form-control" [multiple]="true">
-        <option></option>
-        <option value="1">Aucun</option>
-        <option value="2">Abri jardin</option>
-     </select>
+      <ng-select [multiple]="true" [(ngModel)]="selectedquelsMagazines">
+        <ng-option *ngFor="let quels of quelsMagazines" [value]="quels.title">{{quels.title}}</ng-option>
+        <ng-option [value]="'custom'">Custom</ng-option>
+      </ng-select>
     </div>
     <div class="col">
       <label>Quel est votre fournisseur internet ?</label>
-      <select class="form-control" [multiple]="true">
-        <option></option>
-        <option value="1">Oui</option>
-        <option value="2">Non</option>
-      </select>
+      <ng-select [multiple]="true" [(ngModel)]="selectedQuelest">
+        <ng-option *ngFor="let quels of quelest" [value]="quels.title">{{quels.title}}</ng-option>
+        <ng-option [value]="'custom'">Custom</ng-option>
+      </ng-select>
     </div>
 </div>
 <br>
 <h4>Ma téléphonie</h4>
 <div class="row">
   <div class="col">
-    <label>uel est l'opérateur de votre téléphone mobile ?</label>
-    <select class="form-control" [multiple]="true">
-      <option></option>
-      <option value="1">Abri jardin</option>
-   </select>
+    <label>Quel est l'opérateur de votre téléphone mobile ?</label>
+    <ng-select [multiple]="true" [(ngModel)]="selectedMobile">
+      <ng-option *ngFor="let mobile of phoneMobile" [value]="mobile.title">{{mobile.title}}</ng-option>
+      <ng-option [value]="'custom'">Custom</ng-option>
+    </ng-select>
   </div>
     <div class="col">
       <label>Marque de votre téléphone portable personnel</label>
@@ -53,10 +50,7 @@
     </div>
   <div class="col"></div>
   <div class="col">
-    <ng-select [multiple]="true" [(ngModel)]="selectedCars">
-      <ng-option *ngFor="let car of cars" [value]="car.id" [disabled]="car.disabled">{{car.name}}</ng-option>
-      <ng-option [value]="'custom'">Custom</ng-option>
-  </ng-select>
+
   </div>
 </div>
 

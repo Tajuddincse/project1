@@ -1,0 +1,116 @@
+<form [formGroup]="contactForm" (ngSubmit)="submit(contactForm.value)">
+  <div class="row">
+    <div class="col">
+      <label>Lastname</label>
+      <input type="text" class="form-control" formControlName="Lastname">
+      <div *ngIf="contactForm.controls['Lastname'].invalid && contactForm.controls['Lastname'].touched" class="error">
+        <div *ngIf="contactForm.controls['Lastname'].errors.required">Lastname is required.</div>
+      </div>
+    </div>
+    <div class="col">
+      <label>Firstname</label>
+      <input type="text" class="form-control" formControlName="Firstname">
+      <div *ngIf="contactForm.controls['Firstname'].invalid && contactForm.controls['Firstname'].touched" class="error">
+        <div *ngIf="contactForm.controls['Firstname'].errors.required">Firstname is required.</div>
+      </div>
+    </div>
+    <div class="col">
+      <label>Sex</label>
+      <select class="form-control" formControlName="Sex">
+        <option value="">Select Sex</option>
+        <option value="m">Male</option>
+        <option value="f">Female</option>
+        <option value="o">Others</option>
+      </select>
+      <div *ngIf="contactForm.controls['Sex'].invalid && contactForm.controls['Sex'].touched" class="error">
+        <div *ngIf="contactForm.controls['Sex'].errors.required">Sex is required.</div>
+      </div>
+    </div>
+    <div class="col">
+      <label>Your date of birth</label>
+      <input type="date" class="form-control" formControlName="Your_date_of_birth">
+      <div *ngIf="contactForm.controls['Your_date_of_birth'].invalid && contactForm.controls['Your_date_of_birth'].touched" class="error">
+        <div *ngIf="contactForm.controls['Your_date_of_birth'].errors.required">Your date of birth is required.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label>Address</label>
+      <input type="text" class="form-control" formControlName="Address">
+      <div *ngIf="contactForm.controls['Address'].invalid && contactForm.controls['Address'].touched" class="error">
+        <div *ngIf="contactForm.controls['Address'].errors.required">Address is required.</div>
+      </div>
+    </div>
+    <div class="col">
+      <label>Postal code</label>
+      <input type="text" class="form-control" formControlName="Postal_code">
+      <div *ngIf="contactForm.controls['Postal_code'].invalid && contactForm.controls['Postal_code'].touched" class="error">
+        <div *ngIf="contactForm.controls['Postal_code'].errors.required">Postal code is required.</div>
+      </div>
+    </div>
+    <div class="col">
+      <label>Ville</label>
+      <input type="text" class="form-control" formControlName="Ville">
+      <div *ngIf="contactForm.controls['Ville'].invalid && contactForm.controls['Ville'].touched" class="error">
+        <div *ngIf="contactForm.controls['Ville'].errors.required">Ville is required.</div>
+      </div>
+    </div>
+    <div class="col">
+      <label>Adresse Email</label>
+      <input type="text" class="form-control" formControlName="Adresse_Email">
+      <div *ngIf="contactForm.controls['Adresse_Email'].invalid && contactForm.controls['Adresse_Email'].touched" class="error">
+        <div *ngIf="contactForm.controls['Adresse_Email'].errors.required">Adresse Email is required.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <label>Téléphone</label>
+      <input type="text" class="form-control" formControlName="Téléphone">
+      <div *ngIf="contactForm.controls['Téléphone'].invalid && contactForm.controls['Téléphone'].touched" class="error">
+        <div *ngIf="contactForm.controls['Téléphone'].errors.required">Téléphone is required.</div>
+      </div>
+    </div>
+    <div class="col">
+      <label>Téléphone portable</label>
+      <input type="text" class="form-control" formControlName="Téléphone_portable">
+      <div *ngIf="contactForm.controls['Téléphone_portable'].invalid && contactForm.controls['Téléphone_portable'].touched" class="error">
+        <div *ngIf="contactForm.controls['Téléphone_portable'].errors.required">Téléphone portable is required.</div>
+      </div>
+    </div>
+    <div class="col">
+      <label>Email professionnel</label>
+      <input type="text" class="form-control" formControlName="Email_professionnel">
+      <div *ngIf="contactForm.controls['Email_professionnel'].invalid && contactForm.controls['Email_professionnel'].touched" class="error">
+        <div *ngIf="contactForm.controls['Email_professionnel'].errors.required">Email professionnel is required.</div>
+      </div>
+    </div>
+    <div class="col">
+      <label>fixe professionnel</label>
+      <input type="text" class="form-control" formControlName="fixe_professionnel">
+      <div *ngIf="contactForm.controls['fixe_professionnel'].invalid && contactForm.controls['fixe_professionnel'].touched" class="error">
+        <div *ngIf="contactForm.controls['fixe_professionnel'].errors.required">fixe professionnel is required.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label>mobile professionnel</label>
+      <input type="text" class="form-control" formControlName="mobile_professionnel">
+      <div *ngIf="contactForm.controls['mobile_professionnel'].invalid && contactForm.controls['mobile_professionnel'].touched" class="error">
+        <div *ngIf="contactForm.controls['mobile_professionnel'].errors.required">mobile professionnel is required.</div>
+      </div>
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col text-left" style="padding-top: 20px; padding-left: 0px; margin-left: 0px;">
+        <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Next">
+    </div>
+  </div>
+
+</form>

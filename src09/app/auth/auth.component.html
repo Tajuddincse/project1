@@ -1,0 +1,41 @@
+<body>
+  <div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" [formGroup]="loginForm" (ngSubmit)="submit(loginForm.value)" class="form" method="post">
+                        <h3 class="text-center text-info">Login</h3>
+                        <h3 class="text-center text-info" *ngIf="isError"><span class="error">Invalid credential</span></h3>
+                        <div class="form-group">
+                            <label class="text-info">Email:</label><br>
+                            <input type="text" formControlName="email" class="form-control">
+                        </div>
+                        <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched" class="error">
+                            <div *ngIf="loginForm.controls['email'].errors.required">Email is required.</div>
+                            <div *ngIf="loginForm.controls['email'].errors.pattern">Invalid email.</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info">Password:</label><br>
+                            <input type="text" formControlName="password" class="form-control">
+                        </div>
+                        <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="error">
+                            <div *ngIf="loginForm.controls['password'].errors.required">Name is required.</div>
+                        </div>
+                        <div class="form-group" style="padding-top: 16px;">
+                            <div class="row">
+                                <div class="col text-left">
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                </div>
+                                <div class="col text-right">
+                                    <a routerLink="/register" routerLinkActive="true" class="text-info">Register here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
