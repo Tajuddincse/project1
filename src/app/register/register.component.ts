@@ -40,6 +40,8 @@ export class RegisterComponent implements OnInit {
       }
       this.regObj = this.firestore.doc<any>('ENQUETE-USERS/'+ id);
       this.regObj.set(userData);
+      localStorage.setItem('userData', JSON.stringify(userData));
+      this.router.navigateByUrl('/home');
     } else {
       Object.keys(this.loginForm.controls).forEach(field => {
         const control = this.loginForm.get(field);

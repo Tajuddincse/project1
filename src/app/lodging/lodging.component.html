@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <label>Type de logement</label>
-      <select class="form-control">
+      <select class="form-control" [(ngModel)]="TypeDeLogement" (change)="setTypeDeLogement($event)">
         <option>(choisissez)</option>
         <option value="1">Appartement</option>
           <option value="2">Bateau</option>
@@ -29,7 +29,7 @@
 
       <div class="col">
         <label>Statut de votre résidence principale</label>
-        <select class="form-control">
+        <select class="form-control" [(ngModel)]="StatutDeVotreResidencePrincipale" (change)="setStatutDeVotreResidencePrincipale($event)">
           <option>(choisissez)</option>
           <option value="1">Locataire</option>
           <option value="2">Logé à titre gratuit</option>
@@ -43,9 +43,8 @@
 
     <div class="col">
       <label>Equipements de votre résidence principale</label>
-      <ng-select [multiple]="true" [(ngModel)]="selectedResidency">
+      <ng-select [multiple]="true" (change)="setSelectedResidency($event)" [(ngModel)]="selectedResidency">
         <ng-option *ngFor="let residency of mainresidency" [value]="residency.title">{{residency.title}}</ng-option>
-        <ng-option [value]="'custom'">Custom</ng-option>
       </ng-select>
     </div>
 </div>
@@ -54,7 +53,7 @@
 <div class="row">
   <div class="col">
     <label>Avez-vous une résidence secondaire ?</label>
-    <select class="form-control">
+    <select class="form-control" [(ngModel)]="avezVousUneResidenceSecondaire" (change)="setavezVousUneResidenceSecondaire($event)">
       <option>(choisissez)</option>
       <option value="1">Oui</option>
       <option value="2">Non</option>
@@ -62,7 +61,7 @@
   </div>
   <div class="col">
     <label>Si vous avez une résidence secondaire, de quel type de logement s’agit-il ?</label>
-    <select class="form-control">
+    <select class="form-control" [(ngModel)]="deQuelTypeDeLogementsAgitil" (change)="setdeQuelTypeDeLogementsAgitil($event)">
       <option>(choisissez)</option>
       <option value="1">Appartement</option>
       <option value="2">Bateau </option>
@@ -78,7 +77,7 @@
   </div>
   <div class="col">
     <label>Equipements de votre résidence secondaire</label>
-    <ng-select [multiple]="true" [(ngModel)]="selectedEqipmentOfYourSecondHome">
+    <ng-select [multiple]="true" (change)="setselectedEqipmentOfYourSecondHome($event)" [(ngModel)]="selectedEqipmentOfYourSecondHome">
       <ng-option *ngFor="let eqipment of eqipmentOfYourSecondHome" [value]="eqipment.title">{{eqipment.title}}</ng-option>
       <ng-option [value]="'custom'">Custom</ng-option>
     </ng-select>
@@ -90,28 +89,24 @@
 <div class="row">
   <div class="col">
     <label>Avez-vous des projets d’aménagement ou d’installation cette année ?</label>
-    <ng-select [multiple]="true" [(ngModel)]="selectedmyWorkProject">
+    <ng-select [multiple]="true" (change)="setselectedmyWorkProject($event)" [(ngModel)]="selectedmyWorkProject">
       <ng-option *ngFor="let mywork of myWorkProject" [value]="mywork.title">{{mywork.title}}</ng-option>
       <ng-option [value]="'custom'">Custom</ng-option>
     </ng-select>
   </div>
-  <div class="col"></div>
-  <div class="col"></div>
-  <div class="col"></div>
 </div>
 
 <br>
 <div>
   <div class="row">
     <div class="col">
-        <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+        <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Précédent" (click)="back()">
     </div>
     <div class="col"></div>
     <div class="col"></div>
-
+  
     <div class="col">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
+      <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;" (click)="saveForm()">
     </div>
   </div>
 </div>

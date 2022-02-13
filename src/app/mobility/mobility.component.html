@@ -22,14 +22,13 @@
 <div class="row">
   <div class="col">
     <label>Combien de véhicules automobiles utilisez-vous dans votre foyer ?</label>
-    <select class="form-control">
-      <option>1</option>
-      <option value="1">0</option>
-      <option value="2">1</option>
-      <option value="3">2</option>
-      <option value="4">3</option>
-      <option value="5">4</option>
-      <option value="6">5</option>
+    <select class="form-control" (change)="setCombienDeVehiculesAutomobiles($event)">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
     </select>
   </div>
       <div class="col"></div>
@@ -41,7 +40,7 @@
 <div class="row">
       <div class="col">
         <label>Combien de véhicules 2 roues utilisez-vous dans votre foyer ?</label>
-        <select class="form-control">
+        <select class="form-control" (change)="setCombienDeVehicules2roues($event)" [(ngModel)]="combienDeVehicules2roues">
           <option></option>
           <option value="1">Abri jardin</option>
       </select>
@@ -54,14 +53,13 @@
 <div>
 <div class="row">
   <div class="col">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+      <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Précédent" (click)="back()">
   </div>
   <div class="col"></div>
   <div class="col"></div>
 
   <div class="col">
-    <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
-    <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
+    <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;" (click)="saveForm()">
   </div>
 </div>
 </div>

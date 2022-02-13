@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col">
     <label>Sensibilité politique</label>
-    <select class="form-control">
+    <select class="form-control" (change)="setSensibilitePolitique($event)" [(ngModel)]="sensibilitePolitique">
       <option>(choisissez)</option>
       <option value="1">Locataire</option>
       <option value="2">Logé à titre gratuit</option>
@@ -16,7 +16,7 @@
 
     <div class="col">
       <label>Que pensez-vous de la protection de l’environnement, du développement durable, du réchauffement climatique ?</label>
-      <select class="form-control">
+      <select class="form-control" (change)="setQuePensezVous($event)" [(ngModel)]="quePensezVous">
         <option>(choisissez)</option>
         <option value="1">Locataire</option>
         <option value="2">Logé à titre gratuit</option>
@@ -30,19 +30,19 @@
 
   <div class="col">
     <label>Auprès de quel(s) autre(s) panel(s) de consommateurs êtes-vous inscrit(e) ?</label>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" [(ngModel)]="aupresDeQuel">
   </div>
 </div>
 <br>
 <div class="row">
   <div class="col">
     <label>Comment avez-vous connu AVENIR FOCUS ?</label>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" [(ngModel)]="commentAvezAous">
   </div>
 
     <div class="col">
       <label>Si besoin, précisez : </label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" [(ngModel)]="sibesoin">
     </div>
     <div class="col"></div>
 </div>
@@ -50,14 +50,13 @@
 <div>
   <div class="row">
     <div class="col">
-        <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+        <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Précédent" (click)="back()">
     </div>
     <div class="col"></div>
     <div class="col"></div>
-
+  
     <div class="col">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
+      <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;" (click)="saveForm()">
     </div>
   </div>
   </div>

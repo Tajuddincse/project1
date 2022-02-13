@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {FormData} from '../../app/model/form-data';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 
 @Component({
   selector: 'app-availability',
@@ -6,11 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./availability.component.css']
 })
 export class AVAILABILITYComponent implements OnInit {
+  @Output() pageName = new EventEmitter<string>();
   slotList: any = [];
-  constructor() { }
+  regObj: any;
+  constructor(public allFormData: FormData, public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-
+    this.slotList = this.allFormData.AVAILABILITY.slotList;
   }
 
   setValue(slot: string){
@@ -20,7 +25,7 @@ export class AVAILABILITYComponent implements OnInit {
       const index = this.slotList.indexOf(slot);
       this.slotList.splice(index, 1);
     }
-    console.log(JSON.stringify(this.slotList));
+    this.allFormData.AVAILABILITY.slotList = this.slotList;
   }
   checkNotInArray(slot: string){
     if(this.slotList.indexOf(slot) > -1){
@@ -28,5 +33,24 @@ export class AVAILABILITYComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  back(){
+    this.pageName.emit('VARIOUS');
+  }
+ 
+  saveForm(){
+    const id = this.firestore.createId();
+      const userDatas = {
+        userData: JSON.stringify(this.allFormData),
+        userId: id
+      }
+      console.log(JSON.stringify(userDatas));
+      this.regObj = this.firestore.doc<any>('ENQUETE-USERS-DATA/'+ id);
+      this.regObj.set(userDatas);
+      if(this.regObj){
+        alert('Form submitted');
+        window.location.reload();
+      }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, Validators } from '@angular/forms';
 import {FormData} from '../../app/model/form-data';
@@ -10,6 +10,7 @@ import {FormData} from '../../app/model/form-data';
 })
 export class CONTACTDETAILSComponent implements OnInit {
   contactForm: any;
+  @Output() pageName = new EventEmitter<string>();
   constructor(private fb: FormBuilder,
     public allFormData: FormData,
     public firestore: AngularFirestore) { }
@@ -47,6 +48,8 @@ export class CONTACTDETAILSComponent implements OnInit {
       this.allFormData.CONTACT_DETAILS.Email_professionnel = formData.Email_professionnel;
       this.allFormData.CONTACT_DETAILS.fixe_professionnel = formData.fixe_professionnel;
       this.allFormData.CONTACT_DETAILS.mobile_professionnel = formData.mobile_professionnel;
+      this.pageName.emit('PROFESSIONAL_DATA');
+
     } else {
       Object.keys(this.contactForm.controls).forEach(field => {
         const control = this.contactForm.get(field);

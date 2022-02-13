@@ -38,4 +38,15 @@
     </tr>
   </tbody>
 </table>
-<button type="button" class="btn btn-primary float-right">Save</button>
+
+<div class="row">
+  <div class="col">
+      <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Précédent" (click)="back()">
+  </div>
+  <div class="col"></div>
+  <div class="col"></div>
+
+  <div class="col">
+    <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;" (click)="saveForm()">
+  </div>
+</div>

@@ -1,7 +1,8 @@
+<form [formGroup]="contactForm" (ngSubmit)="submit(contactForm.value)">
 <div class="row">
   <div class="col">
     <label>Votre situation professionnelle</label>
-    <select class="form-control">
+    <select class="form-control" formControlName="VotreSituationProfessionnelle">
       <option>(choisissez)</option>
       <option value="1">Actif</option>
       <option value="2">Apprenti / Etudiant / Alternant</option>
@@ -14,7 +15,7 @@
   </div>
   <div class="col">
     <label>Quel est votre statut professionnel ?</label>
-    <select class="form-control">
+    <select class="form-control" formControlName="QuelEstVotreStatutProfessionnel">
       <option>(choisissez)</option>
       <option value="1">Apprenti</option>
       <option value="2">Artisan</option>
@@ -41,7 +42,7 @@
   </div>
   <div class="col">
     <label>Quelle profession exercez-vous ?</label>
-    <select class="form-control">
+    <select class="form-control" formControlName="QuelleProfessionExercezVous">
       <option value="">Agent EDF / GDF</option>
       <option value="1">Saisissez 1 caractère</option>
     </select>
@@ -53,11 +54,11 @@
 <div class="row">
   <div class="col">
     <label>Nom de l'entreprise ?</label>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" formControlName="NomDeLentreprise" >
   </div>
   <div class="col">
     <label>Dans quel secteur d’activité exercez-vous ?</label>
-    <select class="form-control">
+    <select class="form-control"formControlName="DansQuelSecteur" >
       <option>(choisissez)</option>
       <option value="1">Achats</option>
       <option value="2">Administration</option>
@@ -110,7 +111,7 @@
 
   <div class="col">
     <label>Secteur privé ou secteur public ?</label>
-    <select class="form-control">
+    <select class="form-control" formControlName="SecteurPrive">
       <option>(choisissez)</option>
       <option value="1">Privé</option>
       <option value="2">Public</option>
@@ -120,7 +121,7 @@
 
   <div class="col">
     <label>Quels sont les effectifs de votre entreprise au niveau national ?</label>
-    <select class="form-control">
+    <select class="form-control" formControlName="QuelsSontLes">
       <option>(choisissez)</option>
       <option value="1">1 à 9</option>
       <option value="2">10 à 250 </option>
@@ -134,15 +135,15 @@
 <div class="row">
   <div class="col">
     <label>Adresse</label>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" formControlName="Adresse">
   </div>
   <div class="col">
     <label>Code postal</label>
-    <input type="number" class="form-control">
+    <input type="number" class="form-control" formControlName="CodePostal">
   </div>
   <div class="col">
     <label>Ville</label>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" formControlName="Ville">
   </div>
   <div class="col"></div>
 </div>
@@ -152,19 +153,19 @@
   <div class="row">
     <div class="col">
       <label>Quelle est la banque principale de votre entreprise ?</label>
-      <select class="form-control">
+      <select class="form-control" formControlName="QuelleEstLa">
         <option>(choisissez)</option>
         <option value="1">Saisissez 1 caractère</option>
       </select>
     </div>
     <div class="col">
       <label>Quel chiffre d'affaires annuel réalise votre entreprise ?</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName="QuelChiffre">
     </div>
 
     <div class="col">
       <label>Quel est votre statut professionnel ?</label>
-      <select class="form-control">
+      <select class="form-control" formControlName="QuelEstVotre">
         <option>(choisissez)</option>
         <option value="1">moins de 50 K€</option>
         <option value="2">de 50 K€ à 100 K€</option>
@@ -184,16 +185,14 @@
 <div>
   <div class="row">
     <div class="col">
-        <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+        <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Précédent" (click)="back()">
     </div>
     <div class="col"></div>
     <div class="col"></div>
 
     <div class="col">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
       <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
     </div>
   </div>
 </div>
-
-
+</form>

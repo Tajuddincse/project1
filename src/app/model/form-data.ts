@@ -17,34 +17,91 @@ class CONTACT_DETAILS{
   mobile_professionnel = '';
 }
 class PROFESSIONAL_DATA{
-
+  VotreSituationProfessionnelle = '';
+  QuelEstVotreStatutProfessionnel = '';
+  QuelleProfessionExercezVous = '';
+  NomDeLentreprise = '';
+  DansQuelSecteur = '';
+  SecteurPrive = '';
+  QuelsSontLes = '';
+  Adresse = '';
+  CodePostal = '';
+  Ville = '';
+  QuelleEstLa = '';
+  QuelChiffre = '';
+  QuelEstVotre = '';
 }
 class PERSONAL_DATA{
-  userName: any;
+  VotrePays = '';
+  VotreNiveau  = '';
+  VotreSituation = '';
+  CombienDenfants = '';
+  AttendezVous = '';
+  CombienEnfants = '';
 }
+
 class LODGING{
-  userName: any;
+  selectedResidency: any;
+  selectedEqipmentOfYourSecondHome: any;
+  selectedmyWorkProject: any;
+  TypeDeLogement: any;
+  StatutDeVotreResidencePrincipale: any;
+  avezVousUneResidenceSecondaire: any;
+  deQuelTypeDeLogementsAgitil: any;
 }
 class MEDIA{
-  userName: any;
+  selectedQuelles: any;
+  selectedavezVvous: any;
+  selectedquelsMagazines: any;
+  selectedQuelest: any;
+  selectedMobile: any;
+  marqueDeVotreTelephonePortablePersonnel: any;
 }
 class DAY_TO_DAY{
-  userName: any;
+  selectedQuelSport: any;
+  selectedQuelsSont: any;
+  selectedPortezVous: any;
+  selectedProblemes: any;
+  selectedQuelest: any;
+  selectedVotrePeau: any;
+  selectedQuelleEst: any;
+  selectedQuelsAnimaux: any;
+  fumezVous: any;
+  avezhabitude: any;
 }
 class MOBILITY{
-  userName: any;
+  selectedQuelsMoyens: any;
+  selectedQuelleCarte: any;
+  combienDeVehiculesAutomobiles: any;
+  combienDeVehicules2roues: any;
 }
 class ORGANIZATIONS{
-  userName: any;
+  selectedAssuranceHabitation: any;
+  selectedMutuellePersonnelle: any;
+  selectedMutuelleProfessionnelle: any;
+  selectedAssuranceAutomobile: any;
+  selectedAssuranceVie: any;
+  selectedAssurancedDece: any;
+  selectedQuelleEst: any;
+  selectedQuelsAnimaux: any;
+  selectedCredit: any;
 }
 class CONSUMPTION{
-  userName: any;
+  selectedTypes: any;
+  selectedDansQuelle: any;
+  selectedAvezVous: any;
+  lorsqueVousFaites: any;
+  quePensezVousDesProduitsBio: any;
 }
 class VARIOUS{
-  userName: any;
+  sensibilitePolitique: any;
+  quePensezVous: any;
+  aupresDeQuel: any;
+  commentAvezAous: any;
+  sibesoin: any;
 }
 class AVAILABILITY{
-  userName: any;
+  slotList: any = [];
 }
 
 export class FormData {

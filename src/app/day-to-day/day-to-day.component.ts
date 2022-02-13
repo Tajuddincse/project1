@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {FormData} from '../../app/model/form-data';
 
 @Component({
   selector: 'app-day-to-day',
@@ -6,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./day-to-day.component.css']
 })
 export class DAYTODAYComponent implements OnInit {
-
-  selectedQuelSport: any = [];
-  selectedQuelsSont: any = [];
-  selectedPortezVous: any = [];
-  selectedProblemes: any = [];
-  selectedQuelest: any = [];
-  selectedVotrePeau: any = [];
-  selectedQuelleEst: any = [];
-  selectedQuelsAnimaux: any = [];
+  @Output() pageName = new EventEmitter<string>();
+  selectedQuelSport: any;
+  selectedQuelsSont: any;
+  selectedPortezVous: any;
+  selectedProblemes: any;
+  selectedQuelest: any;
+  selectedVotrePeau: any;
+  selectedQuelleEst: any;
+  selectedQuelsAnimaux: any;
+  fumezVous: any;
+  avezhabitude: any;
 
   quelSport = [{"title":"Aucun"},{"title":"Accrobranche"},{"title":"Activité nautique"},{"title":"Activités à sensations fortes"},{"title":"Aérobic"},{"title":"Aérobic sportive"},{"title":"Aéromodelisme"},{"title":"Aérostation"},{"title":"Agility"},{"title":"Aïki Taïso"},{"title":"Aikibudo"},{"title":"Aikido"},{"title":"Airsoft"},{"title":"Alpinisme"},{"title":"Apnée"},{"title":"Aquabiking"},{"title":"Aquagym"},{"title":"Arts martiaux"},{"title":"Arts martiaux artistiques"},{"title":"Athlétisme"},{"title":"Aviation"},{"title":"Aviron"},{"title":"Babyfoot"},{"title":"Bachata"},{"title":"Badminton"},{"title":"Ballet sur glace"},{"title":"Barre au sol"},{"title":"Baseball"},{"title":"Basketball"},{"title":"Beach soccer"},{"title":"Beach volley"},{"title":"Biathlon"},{"title":"Billard"},{"title":"Body Attack"},{"title":"Body combat"},{"title":"Bodyboard"},{"title":"Boomerang"},{"title":"Boot camp"},{"title":"Boxe americaine"},{"title":"Boxe anglaise"},{"title":"Boxe française"},{"title":"Boxe thailandaise"},{"title":"Break dance"},{"title":"Canicross"},{"title":"Canoë Kayak"},{"title":"Canyonisme"},{"title":"Capoeira"},{"title":"Cardio"},{"title":"Cardio Boxing"},{"title":"Catamaran"},{"title":"Cerf volant"},{"title":"Chanbara"},{"title":"Chasse"},{"title":"Chasse sous-marine"},{"title":"Cheerleading"},{"title":"Chiens de traîneau"},{"title":"Claquettes"},{"title":"Combat"},{"title":"Combat libre"},{"title":"Courses à obstacles"},{"title":"Danse"},{"title":"Danse africaine"},{"title":"Danse classique"},{"title":"Danse contemporaine"},{"title":"Danse country"},{"title":"Danse espagnole"},{"title":"Danse folklorique"},{"title":"Danse Hip-Hop"},{"title":"Danse indienne"},{"title":"Danse jamaïcaine"},{"title":"Danse jazz"},{"title":"Danse latine"},{"title":"Danse modern jazz"},{"title":"Danse orientale"},{"title":"Danse sur glace"},{"title":"Danse swing"},{"title":"Danses de salon"},{"title":"Danses latines"},{"title":"Deltaplane"},{"title":"Dodgeball"},{"title":"Électrostimulation"},{"title":"Entraînement fractionné de haute intensité (HIIT)"},{"title":"Equitation"},{"title":"Escalade"},{"title":"Fauteuil roulant"},{"title":"Feldenkrais (méthode)"},{"title":"Fitness / Sport en salle"},{"title":"Fitness à la maison"},{"title":"Flag football"},{"title":"Flamenco"},{"title":"Floorball"},{"title":"Football"},{"title":"Football américain"},{"title":"Funboard"},{"title":"Futsal"},{"title":"Gymnastique"},{"title":"Gymnastique artistique"},{"title":"Gymnastique chinoise"},{"title":"Gymnastique rythmique"},{"title":"Gymnastique suédoise"},{"title":"Haltérophilie"},{"title":"Handball"},{"title":"Handisport"},{"title":"Hapkido"},{"title":"Hockey subaquatique"},{"title":"Hockey sur gazon"},{"title":"Hockey sur glace"},{"title":"Hockey sur patins"},{"title":"Horse ball"},{"title":"House dance"},{"title":"Jiu-Jitsu traditionnel"},{"title":"Joutes Nautiques"},{"title":"Kangoo Jump"},{"title":"Karaté"},{"title":"Karting / Quad"},{"title":"Kayak"},{"title":"Kizomba"},{"title":"Krav maga"},{"title":"Lacrosse"},{"title":"Longboard"},{"title":"Longe-côte / randonnée aquatique"},{"title":"Marathon"},{"title":"Marche à pied"},{"title":"Marche Nordique"},{"title":"Marche rapide"},{"title":"Métafit"},{"title":"Mma"},{"title":"Motonautisme"},{"title":"Mountainboard"},{"title":"Musculation"},{"title":"Natation"},{"title":"Natation synchronisée"},{"title":"Nautisme"},{"title":"Paddle"},{"title":"Padel"},{"title":"Parachutisme"},{"title":"Paramoteur"},{"title":"Parapente"},{"title":"Parkour"},{"title":"Patin à glace"},{"title":"Patinage"},{"title":"Patinage artistique"},{"title":"Pêche au gros"},{"title":"Pêche sous-marine"},{"title":"Pelotte basque"},{"title":"Pentathlon"},{"title":"Pétanque"},{"title":"Pilate"},{"title":"Planche à voile"},{"title":"Plongée sous marine"},{"title":"Pole dance"},{"title":"Quad"},{"title":"Qwan ki do"},{"title":"Rafting"},{"title":"Ragga / Dancehall"},{"title":"Rallye automobile"},{"title":"Rameur"},{"title":"Randonnée"},{"title":"Randonnée aquatique"},{"title":"Randonnée équestre"},{"title":"Randonnée pedestre"},{"title":"Raquette"},{"title":"Raquette à neige"},{"title":"Renforcement musculaire"},{"title":"Salsa"},{"title":"Samba"},{"title":"Showboard"},{"title":"Skateboard"},{"title":"Ski alpin"},{"title":"Ski de randonnée"},{"title":"Ski nautique"},{"title":"Skimboard"},{"title":"Skin Alpin"},{"title":"Slackline"},{"title":"Snowboard"},{"title":"Softball"},{"title":"Sport aquatique"},{"title":"Sport automobile"},{"title":"Sport canin"},{"title":"Squash"},{"title":"Street jazz"},{"title":"Tabata"},{"title":"Taekwondo"},{"title":"Taï chi chuan"},{"title":"Taï chi qi gong"},{"title":"Tai Jitsu"},{"title":"Tai-chi-chuan"},{"title":"Taido"},{"title":"Taïso"},{"title":"Tango"},{"title":"Tchoukball"},{"title":"Tennis de table"},{"title":"Tir à l’arc"},{"title":"Tir au pistolet"},{"title":"Trail"},{"title":"Traineaux"},{"title":"Trampoline"},{"title":"Trapèze volant"},{"title":"Trial"},{"title":"Triathlon"},{"title":"Twirling baton"},{"title":"Ultimate"},{"title":"Vélo d'appartement"},{"title":"Volleyball"},{"title":"Wakeboard"},{"title":"Water Polo"},{"title":"Waterbike"},{"title":"West coast swing"},{"title":"Yoga"},{"title":"Zumba"},{"title":"Autre, précisez"}];
 
@@ -32,9 +35,44 @@ export class DAYTODAYComponent implements OnInit {
 
   quelsAnimaux = [{"title":"Aucun"},{"title":"Axolotl"},{"title":"Canard(s)"},{"title":"Chat"},{"title":"Cheval"},{"title":"Chinchilla"},{"title":"Hamster"},{"title":"Iguane"},{"title":"Lama(s)"},{"title":"Lapin"},{"title":"Lézard"},{"title":"Mygale"},{"title":"Oiseaux"},{"title":"Phasmes"},{"title":"Rat"},{"title":"Autre, précisez"}];
 
-  constructor() { }
+  constructor(public allFormData: FormData) {}
 
   ngOnInit(): void {
+    this.selectedQuelSport = this.allFormData.DAY_TO_DAY.selectedQuelSport;
+    this.selectedQuelsSont = this.allFormData.DAY_TO_DAY.selectedQuelsSont;
+    this.selectedPortezVous = this.allFormData.DAY_TO_DAY.selectedPortezVous;
+    this.selectedProblemes = this.allFormData.DAY_TO_DAY.selectedProblemes;
+    this.selectedQuelest = this.allFormData.DAY_TO_DAY.selectedQuelest;
+    this.selectedVotrePeau = this.allFormData.DAY_TO_DAY.selectedVotrePeau;
+    this.selectedQuelleEst = this.allFormData.DAY_TO_DAY.selectedQuelleEst;
+    this.selectedQuelsAnimaux = this.allFormData.DAY_TO_DAY.selectedQuelsAnimaux;
+    this.fumezVous = this.allFormData.DAY_TO_DAY.fumezVous;
+    this.avezhabitude = this.allFormData.DAY_TO_DAY.avezhabitude;
+  }
+
+  back(){
+    this.pageName.emit('MEDIA');
+  }
+
+  setFumezVous(event: any){
+    this.fumezVous = event.target.value;
+  }
+  setAvezhabitude(event: any){
+    this.avezhabitude= event.target.value;
+  }
+
+  saveForm(){
+    this.allFormData.DAY_TO_DAY.selectedQuelSport = this.selectedQuelSport;
+    this.allFormData.DAY_TO_DAY.selectedQuelsSont = this.selectedQuelsSont;
+    this.allFormData.DAY_TO_DAY.selectedPortezVous = this.selectedPortezVous;
+    this.allFormData.DAY_TO_DAY.selectedProblemes = this.selectedProblemes;
+    this.allFormData.DAY_TO_DAY.selectedQuelest = this.selectedQuelest;
+    this.allFormData.DAY_TO_DAY.selectedVotrePeau = this.selectedVotrePeau;
+    this.allFormData.DAY_TO_DAY.selectedQuelleEst = this.selectedQuelleEst;
+    this.allFormData.DAY_TO_DAY.selectedQuelsAnimaux = this.selectedQuelsAnimaux;
+    this.allFormData.DAY_TO_DAY.fumezVous = this.fumezVous;
+    this.allFormData.DAY_TO_DAY.avezhabitude = this.avezhabitude;
+    this.pageName.emit('MOBILITY');
   }
 
 }

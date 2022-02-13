@@ -1,50 +1,50 @@
-<div style="background: #f0f0f0;">
+<div style="background: #17a2b8;">
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item" (click)="changeMenu('CONTACT_DETAILS')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'CONTACT_DETAILS'}" data-toggle="tab">CONTACT DETAILS</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'CONTACT_DETAILS'}" data-toggle="tab"><i class="fa fa-envelope" aria-hidden="true"></i> CONTACT DETAILS</div>
     </li>
     <li class="nav-item" (click)="changeMenu('PROFESSIONAL_DATA')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'PROFESSIONAL_DATA'}" data-toggle="tab">PROFESSIONAL DATAS</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'PROFESSIONAL_DATA'}" data-toggle="tab"><i class="fa fa-briefcase" aria-hidden="true"></i> PROFESSIONAL DATAS</div>
     </li>
     <li class="nav-item" (click)="changeMenu('PERSONAL_DATA')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'PERSONAL_DATA'}" data-toggle="tab">PERSONAL DATA</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'PERSONAL_DATA'}" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i> PERSONAL DATA</div>
     </li>
     <li class="nav-item" (click)="changeMenu('LODGING')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'LODGING'}" data-toggle="tab">LODGING</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'LODGING'}" data-toggle="tab"><i class="fa fa-home" aria-hidden="true"></i> LODGING</div>
     </li>
     <li class="nav-item" (click)="changeMenu('MEDIA')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'MEDIA'}" data-toggle="tab">MEDIA</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'MEDIA'}" data-toggle="tab"><i class="fa fa-wifi" aria-hidden="true"></i> MEDIA</div>
     </li>
     <li class="nav-item" (click)="changeMenu('DAY_TO_DAY')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'DAY_TO_DAY'}" data-toggle="tab">DAY TO DAY</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'DAY_TO_DAY'}" data-toggle="tab"><i class="fa fa-coffee" aria-hidden="true"></i> DAY TO DAY</div>
     </li>
     <li class="nav-item" (click)="changeMenu('MOBILITY')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'MOBILITY'}" data-toggle="tab">MOBILITY</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'MOBILITY'}" data-toggle="tab"><i class="fa fa-car" aria-hidden="true"></i> MOBILITY</div>
     </li>
     <li class="nav-item" (click)="changeMenu('ORGANIZATIONS')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'ORGANIZATIONS'}" data-toggle="tab">ORGANIZATIONS</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'ORGANIZATIONS'}" data-toggle="tab"><i class="fa fa-bank" aria-hidden="true"></i> ORGANIZATIONS</div>
     </li>
     <li class="nav-item" (click)="changeMenu('CONSUMPTION')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'CONSUMPTION'}" data-toggle="tab">CONSUMPTION</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'CONSUMPTION'}" data-toggle="tab"><i class="fa fa-cart" aria-hidden="true"></i> CONSUMPTION</div>
     </li>
     <li class="nav-item" (click)="changeMenu('VARIOUS')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'VARIOUS'}" data-toggle="tab">VARIOUS</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'VARIOUS'}" data-toggle="tab"><i class="fa fa-leaf" aria-hidden="true"></i> VARIOUS</div>
     </li>
     <li class="nav-item" (click)="changeMenu('AVAILABILITY')">
-      <div class="nav-link" [ngClass]="{'active': currentPage === 'AVAILABILITY'}" data-toggle="tab">AVAILABILITY</div>
+      <div class="nav-link" [ngClass]="{'active': currentPage === 'AVAILABILITY'}" data-toggle="tab"><i class="fa fa-calendar" aria-hidden="true"></i> AVAILABILITY</div>
     </li>
   </ul>
 </div>
 <div style="padding: 16px;">
-  <app-contact-details *ngIf="currentPage === 'CONTACT_DETAILS'"></app-contact-details>
-  <app-professional-data *ngIf="currentPage === 'PROFESSIONAL_DATA'"></app-professional-data>
-  <app-personal-data *ngIf="currentPage === 'PERSONAL_DATA'"></app-personal-data>
-  <app-lodging *ngIf="currentPage === 'LODGING'"></app-lodging>
-  <app-media *ngIf="currentPage === 'MEDIA'"></app-media>
-  <app-day-to-day  *ngIf="currentPage === 'DAY_TO_DAY'"></app-day-to-day>
-  <app-mobility *ngIf="currentPage === 'MOBILITY'"></app-mobility>
-  <app-organizations *ngIf="currentPage === 'ORGANIZATIONS'"></app-organizations>
-  <app-consumption *ngIf="currentPage === 'CONSUMPTION'"></app-consumption>
-  <app-various *ngIf="currentPage === 'VARIOUS'"></app-various>
-  <app-availability *ngIf="currentPage === 'AVAILABILITY'"></app-availability>
+  <app-contact-details *ngIf="currentPage === 'CONTACT_DETAILS'" (pageName)="redirect($event)"></app-contact-details>
+  <app-professional-data *ngIf="currentPage === 'PROFESSIONAL_DATA'"  (pageName)="redirect($event)"></app-professional-data>
+  <app-personal-data *ngIf="currentPage === 'PERSONAL_DATA'"  (pageName)="redirect($event)"></app-personal-data>
+  <app-lodging *ngIf="currentPage === 'LODGING'"  (pageName)="redirect($event)"></app-lodging>
+  <app-media *ngIf="currentPage === 'MEDIA'"  (pageName)="redirect($event)"></app-media>
+  <app-day-to-day  *ngIf="currentPage === 'DAY_TO_DAY'"  (pageName)="redirect($event)"></app-day-to-day>
+  <app-mobility *ngIf="currentPage === 'MOBILITY'"  (pageName)="redirect($event)"></app-mobility>
+  <app-organizations *ngIf="currentPage === 'ORGANIZATIONS'"  (pageName)="redirect($event)"></app-organizations>
+  <app-consumption *ngIf="currentPage === 'CONSUMPTION'"  (pageName)="redirect($event)"></app-consumption>
+  <app-various *ngIf="currentPage === 'VARIOUS'"  (pageName)="redirect($event)"></app-various>
+  <app-availability *ngIf="currentPage === 'AVAILABILITY'" (pageName)="redirect($event)"></app-availability>
 </div>

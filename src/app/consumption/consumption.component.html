@@ -18,7 +18,7 @@
 
   <div class="col">
     <label>Lorsque vous faites vos courses, quels types de marques achetez-vous majoritairement ?</label>
-    <select class="form-control">
+    <select class="form-control" [(ngModel)]="lorsqueVousFaites" (change)="setlorsqueVousFaites($event)">
       <option>(choisissez)</option>
       <option value="1">Locataire</option>
       <option value="2">Logé à titre gratuit</option>
@@ -36,7 +36,7 @@
 <div class="row">
   <div class="col">
     <label>Que pensez-vous des produits bio ?</label>
-    <select class="form-control">
+    <select class="form-control" [(ngModel)]="quePensezVousDesProduitsBio" (change)="setQuePensezVousDesProduitsBio($event)">
       <option>(choisissez)</option>
       <option value="1">Locataire</option>
       <option value="2">Logé à titre gratuit</option>
@@ -61,14 +61,13 @@
 <div>
   <div class="row">
     <div class="col">
-        <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+        <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Précédent" (click)="back()">
     </div>
     <div class="col"></div>
     <div class="col"></div>
-
+  
     <div class="col">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
+      <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;" (click)="saveForm()">
     </div>
   </div>
   </div>

@@ -17,7 +17,7 @@
 
   <div class="col">
     <label>Fumez-vous ?</label>
-    <select class="form-control">
+    <select class="form-control" (change)="setFumezVous($event)" [(ngModel)]="fumezVous">
       <option></option>
       <option value="1">Aucun</option>
       <option value="2">Abri jardin</option>
@@ -35,7 +35,7 @@
 <div class="row">
 <div class="col">
   <label>Avez-vous l’habitude de porter des chaussettes, bas ou collants de contention ?</label>
-  <select class="form-control">
+  <select class="form-control" (change)="setAvezhabitude($event)">
     <option></option>
     <option value="1">Aucun</option>
     <option value="2">Abri jardin</option>
@@ -89,14 +89,13 @@
 <div>
 <div class="row">
   <div class="col">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+      <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Précédent" (click)="back()">
   </div>
   <div class="col"></div>
   <div class="col"></div>
 
   <div class="col">
-    <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
-    <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
+    <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;" (click)="saveForm()">
   </div>
 </div>
 </div>

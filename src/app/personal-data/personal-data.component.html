@@ -1,8 +1,8 @@
-
+<form [formGroup]="contactForm" (ngSubmit)="submit(contactForm.value)">
   <div class="row">
     <div class="col">
       <label>Votre pays d'origine</label>
-      <select class="form-control">
+      <select class="form-control" formControlName="VotrePays">
         <option>(choisissez)</option>
         <option value="1">Saisissez 1 caractère</option>
       </select>
@@ -10,7 +10,7 @@
 
       <div class="col">
         <label>Votre niveau d'études</label>
-        <select class="form-control">
+        <select class="form-control" formControlName="VotreNiveau">
           <option>(choisissez)</option>
           <option value="1">Cap 1 Ère Année</option>
           <option value="2">Cap 2 Éme Année</option>
@@ -31,7 +31,7 @@
 
     <div class="col">
       <label>Votre situation familiale *</label>
-      <select class="form-control">
+      <select class="form-control" formControlName="VotreSituation">
         <option>(choisissez)</option>
         <option value="1">Célibataire</option>
         <option value="2">Divorcé(e)</option>
@@ -49,7 +49,7 @@
 <div class="row">
   <div class="col">
     <label>Combien d'enfants avez-vous ?</label>
-    <select class="form-control">
+    <select class="form-control" formControlName="CombienDenfants">
       <option>(choisissez)</option>
       <option value="0">0</option>
       <option value="1">1</option>
@@ -66,7 +66,7 @@
   </div>
   <div class="col">
     <label>Attendez-vous un enfant ?</label>
-    <select class="form-control">
+    <select class="form-control" formControlName="AttendezVous">
       <option>(choisissez)</option>
       <option value="1">Oui</option>
       <option value="2">Non</option>
@@ -80,7 +80,7 @@
 <div class="row">
   <div class="col">
     <label>Combien d'enfants avez-vous ?</label>
-    <select class="form-control">
+    <select class="form-control" formControlName="CombienEnfants">
       <option>(choisissez)</option>
       <option value="1">De 0 à 600 €</option>
       <option value="2">De 600 € à 1200 €</option>
@@ -104,14 +104,14 @@
 <div>
   <div class="row">
     <div class="col">
-        <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+        <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Précédent" (click)="back()">
     </div>
     <div class="col"></div>
     <div class="col"></div>
 
     <div class="col">
-      <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
       <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
     </div>
   </div>
 </div>
+</form>

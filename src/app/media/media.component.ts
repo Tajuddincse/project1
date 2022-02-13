@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import {FormData} from '../../app/model/form-data';
 
 @Component({
   selector: 'app-media',
@@ -6,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./media.component.css']
 })
 export class MEDIAComponent implements OnInit {
-  selectedQuelles: any = [];
-  selectedavezVvous: any = [];
-  selectedquelsMagazines: any = [];
-  selectedQuelest: any = [];
-  selectedMobile: any = [];
+  @Output() pageName = new EventEmitter<string>();
+  contactForm: any;
+  selectedQuelles: any;
+  selectedavezVvous: any;
+  selectedquelsMagazines: any;
+  selectedQuelest: any;
+  selectedMobile: any;
+  marqueDeVotreTelephonePortablePersonnel: any;
 
   quelles = [{"title":" Ado FM"},{"title":" Alouette"},{"title":" Alta fréquenza"},{"title":" Aucune"},{"title":" Autoroute FM"},{"title":" Autoroute Info"},{"title":" Black Box"},{"title":" Champagne FM"},{"title":" Chante France"},{"title":" Contact FM"},{"title":" Evasion FM"},{"title":" Fc radio (Fréquence côtière)"},{"title":" FG DJ Radio"},{"title":" France Bleu"},{"title":" France Culture"},{"title":" France Info"},{"title":" France Inter"},{"title":" France maghreb"},{"title":" France Musique"},{"title":" Fun Radio"},{"title":" Jazz radio"},{"title":" jordanne FM"},{"title":" Latina"},{"title":" LCI Radio"},{"title":" M Radio"},{"title":" Mona FM"},{"title":" Normandie FM"},{"title":" Nostalgie"},{"title":" Parenthèse radio"},{"title":" Phare FM"},{"title":" Radio Classique"},{"title":" Radio Courtoisie"},{"title":" Radio de la mer"},{"title":" Radio espérance"},{"title":" Radio FG"},{"title":" Radio Nova"},{"title":" Radio orient"},{"title":" Radio scoop"},{"title":" Radio star"},{"title":" Radio Trafic FM"},{"title":" Radio vitamine"},{"title":" Radio zinzine"},{"title":" Rire et chansons"},{"title":" Sud Radio"},{"title":" TSF Jazz"},{"title":" Vibration"},{"title":" Virgin Radio"},{"title":" Voltage"},{"title":"Africa n°1"},{"title":"Alpes 1"},{"title":"AlterNantes"},{"title":"ARL"},{"title":"Arte Radio"},{"title":"Canal B"},{"title":"Capsao"},{"title":"CINEMUSIC Radio"},{"title":"Classic 21"},{"title":"Classic FM NL"},{"title":"Delta FM"},{"title":"Djam Radio"},{"title":"Flower power radio"},{"title":"France 2"},{"title":"Fréquence Jazz"},{"title":"Frisky Radio"},{"title":"Galaxie Radio"},{"title":"Générations"},{"title":"Grimaldi FM"},{"title":"Happy Fm"},{"title":"Hot Radio"},{"title":"Ici et maintenant"},{"title":"Impact FM"},{"title":"Kawa hifi station"},{"title":"Là La Radio"},{"title":"La Radio Plus"},{"title":"Latitude "},{"title":"Littoral FM"},{"title":"Magnum la radio"},{"title":"Maritima"},{"title":"Max FM"},{"title":"Maxi 80"},{"title":"MBS Radio"},{"title":"Mistral FM"},{"title":"Océane"},{"title":"ODS Radio"},{"title":"Pastel fm"},{"title":"Radio 6"},{"title":"Radio 666"},{"title":"Radio Activ'"},{"title":"Radio alpha"},{"title":"Radio Béton"},{"title":"Radio Brume"},{"title":"Radio Camargue"},{"title":"Radio campus"},{"title":"Radio Canut"},{"title":"Radio Capital"},{"title":"Radio Caroline"},{"title":"Radio Cristal"},{"title":"Radio Dio"},{"title":"Radio Espace"},{"title":"Radio Flash"},{"title":"Radio Grenouille"},{"title":"Radio Isa"},{"title":"Radio J"},{"title":"Radio Kabul"},{"title":"Radio libertaire"},{"title":"Radio locale"},{"title":"Radio Meuh"},{"title":"Radio Monaco"},{"title":"Radio Néo"},{"title":"Radio parleur"},{"title":"Radio Phénix"},{"title":"Radio Pomme d'api"},{"title":"Radio Rézo"},{"title":"Radio Saint Ferréol"},{"title":"Radio Salam"},{"title":"Radio sympa"},{"title":"Radio Transat"},{"title":"RAM"},{"title":"RBA"},{"title":"RCA"},{"title":"Résonance"},{"title":"Riviera Radio"},{"title":"RVA"},{"title":"Spoon radio"},{"title":"Tarmac"},{"title":"Tendance ouest"},{"title":"Tonic Radio"},{"title":"Trace FM"},{"title":"Urban hit"},{"title":"Virage Radio"},{"title":"VivaCité"},{"title":"Zebradio"},{"title":"Autre, précisez"}];
 
@@ -21,8 +26,46 @@ export class MEDIAComponent implements OnInit {
   quelest = [{"title":"Aucun"},{"title":"Alice"},{"title":"Alsatis"},{"title":"AMBSE"},{"title":"Can'L"},{"title":"Comcable"},{"title":"Darty"},{"title":"Europasat"},{"title":"Eutelsat"},{"title":"La Poste Mobile"},{"title":"Monaco Telecom"},{"title":"Nautile"},{"title":"Numericable"},{"title":"Orange"},{"title":"Planet Campus"},{"title":"Régie municipale"},{"title":"Sat2Way"},{"title":"Vialis"},{"title":"Autre, précisez"}];
 
   phoneMobile = [{"title":"Aucun"},{"title":"Afone"},{"title":"Alphalink"},{"title":"Auchan Telecom"},{"title":"Bazil télécom"},{"title":"Carrefour"},{"title":"Casino Mobile"},{"title":"Estvideo numericable"},{"title":"Fnac mobile"},{"title":"Je n'ai pas de téléphone mobile"},{"title":"La French Mobile"},{"title":"La Poste mobile"},{"title":"Lebara"},{"title":"Lycamobile"},{"title":"Monaco Telecom"},{"title":"Numericable"},{"title":"Orange"},{"title":"Paritel"},{"title":"Sewan Communications"},{"title":"Sosh - Orange"},{"title":"Syma Mobile"},{"title":"Symacom"},{"title":"Transatel"},{"title":"Universal Mobile"},{"title":"Vialis"},{"title":"Vodafone"},{"title":"Zyma"},{"title":"Autre, précisez"}];
-  constructor() { }
+  
+  constructor(public formData: FormData, public allFormData: FormData,private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    this.selectedQuelles = this.allFormData.MEDIA.selectedQuelles;
+    this.selectedavezVvous = this.allFormData.MEDIA.selectedavezVvous;
+    this.selectedquelsMagazines = this.allFormData.MEDIA.selectedquelsMagazines;
+    this.selectedQuelest = this.allFormData.MEDIA.selectedQuelest;
+    this.selectedMobile = this.allFormData.MEDIA.selectedMobile;
+    this.marqueDeVotreTelephonePortablePersonnel = this.allFormData.MEDIA.marqueDeVotreTelephonePortablePersonnel;
+  }
+  setselectedQuelles(event: any){
+    this.selectedQuelles = event;
+  }
+  setselectedavezVvous(event: any){
+    this.selectedavezVvous = event;
+  }
+  setselectedquelsMagazines(event: any){
+    this.selectedquelsMagazines = event;
+  }
+  setselectedQuelest(event: any){
+    this.selectedQuelest = event;
+  }
+  setselectedMobile(event: any){
+    this.selectedMobile = event;
+  }
+  setMarqueDeVotreTelephonePortablePersonnel(event: any){
+    this.marqueDeVotreTelephonePortablePersonnel = event.target.value;
+  }
+  saveFormData(){
+    this.allFormData.MEDIA.selectedQuelles = this.selectedQuelles;
+    this.allFormData.MEDIA.selectedavezVvous = this.selectedavezVvous;
+    this.allFormData.MEDIA.selectedquelsMagazines = this.selectedquelsMagazines;
+    this.allFormData.MEDIA.selectedQuelest = this.selectedQuelest;
+    this.allFormData.MEDIA.selectedMobile = this.selectedMobile;
+    this.allFormData.MEDIA.marqueDeVotreTelephonePortablePersonnel = this.marqueDeVotreTelephonePortablePersonnel;
+    this.pageName.emit('DAY_TO_DAY');
+  }
+
+  back(){
+    this.pageName.emit('LODGING');
   }
 }

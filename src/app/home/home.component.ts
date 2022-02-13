@@ -22,5 +22,8 @@ export class HomeComponent implements OnInit {
   changeMenu(tabs: string){
     this.currentPage = tabs;
   }
+  redirect(event: any){
+    this.currentPage = event;
+  }
 
 }
