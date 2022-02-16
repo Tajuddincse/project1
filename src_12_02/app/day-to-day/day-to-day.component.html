@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col">
+    <label>Quel(s) sport(s) pratiquez-vous ?</label>
+    <ng-select [multiple]="true" [(ngModel)]="selectedQuelSport">
+      <ng-option *ngFor="let sport of quelSport" [value]="sport.title">{{sport.title}}</ng-option>
+      <ng-option [value]="'custom'">Custom</ng-option>
+    </ng-select>
+  </div>
+
+    <div class="col">
+      <label>Quels sont vos loisirs et vos centres d'intérêts ?</label>
+      <ng-select [multiple]="true" [(ngModel)]="selectedQuelsSont">
+        <ng-option *ngFor="let sont of quelsSont" [value]="sont.title">{{sont.title}}</ng-option>
+        <ng-option [value]="'custom'">Custom</ng-option>
+      </ng-select>
+    </div>
+
+  <div class="col">
+    <label>Fumez-vous ?</label>
+    <select class="form-control">
+      <option></option>
+      <option value="1">Aucun</option>
+      <option value="2">Abri jardin</option>
+   </select>
+  </div>
+  <div class="col">
+    <label>Portez-vous des lunettes ou des lentilles ?</label>
+    <ng-select [multiple]="true" [(ngModel)]="selectedPortezVous">
+      <ng-option *ngFor="let vous of portezVous" [value]="vous.title">{{vous.title}}</ng-option>
+      <ng-option [value]="'custom'">Custom</ng-option>
+    </ng-select>
+  </div>
+</div>
+<br>
+<div class="row">
+<div class="col">
+  <label>Avez-vous l’habitude de porter des chaussettes, bas ou collants de contention ?</label>
+  <select class="form-control">
+    <option></option>
+    <option value="1">Aucun</option>
+    <option value="2">Abri jardin</option>
+ </select>
+</div>
+
+  <div class="col">
+    <label>Problèmes de santé et/ou traitements médicaux suivis:</label>
+    <ng-select [multiple]="true" [(ngModel)]="selectedProblemes">
+      <ng-option *ngFor="let prob of problemes" [value]="prob.title">{{prob.title}}</ng-option>
+      <ng-option [value]="'custom'">Custom</ng-option>
+    </ng-select>
+  </div>
+  <div class="col">
+    <label>Quel est votre type de cheveux ?</label>
+    <ng-select [multiple]="true" [(ngModel)]="selectedQuelest">
+      <ng-option *ngFor="let est of quelest" [value]="est.title">{{est.title}}</ng-option>
+      <ng-option [value]="'custom'">Custom</ng-option>
+    </ng-select>
+  </div>
+  <div class="col">
+    <label>Votre peau est-elle plutôt … :</label>
+    <ng-select [multiple]="true" [(ngModel)]="selectedVotrePeau">
+      <ng-option *ngFor="let votre of votrePeau" [value]="votre.title">{{votre.title}}</ng-option>
+      <ng-option [value]="'custom'">Custom</ng-option>
+    </ng-select>
+  </div>
+</div>
+
+<br>
+<div class="row">
+<div class="col">
+  <label>Quelle est votre couleur de cheveux ?</label>
+  <ng-select [multiple]="true" [(ngModel)]="selectedQuelleEst">
+    <ng-option *ngFor="let est of quelleEst" [value]="est.title">{{est.title}}</ng-option>
+    <ng-option [value]="'custom'">Custom</ng-option>
+  </ng-select>
+</div>
+  <div class="col">
+    <label>Quels animaux possédez-vous ?</label>
+    <ng-select [multiple]="true" [(ngModel)]="selectedQuelsAnimaux">
+      <ng-option *ngFor="let animaux of quelsAnimaux" [value]="animaux.title">{{animaux.title}}</ng-option>
+      <ng-option [value]="'custom'">Custom</ng-option>
+    </ng-select>
+  </div>
+  <div class="col"></div>
+  <div class="col"></div>
+
+</div>
+<br>
+<div>
+<div class="row">
+  <div class="col">
+      <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+  </div>
+  <div class="col"></div>
+  <div class="col"></div>
+
+  <div class="col">
+    <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
+    <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
+  </div>
+</div>
+</div>
+
+

@@ -1,0 +1,11 @@
+<div class="alert alert-primary text-center" role="alert">Admin Dashboard.</div>
+<div style="padding: 16px;">
+    <div class="card btn btn-warning" style="width: 18rem;" (click)="viewSubmitedForm()">
+        <div class="card-body">
+          <h5 class="card-content text-center">View all submited forms</h5>
+        </div>
+    </div>
+    <app-user-data *ngIf="userData" [userData]="userData"></app-user-data>
+</div>
+
+

@@ -12,10 +12,14 @@ export class AVAILABILITYComponent implements OnInit {
   @Output() pageName = new EventEmitter<string>();
   slotList: any = [];
   regObj: any;
+  obj: any;
+  dataVal: any;
   constructor(public allFormData: FormData, public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
     this.slotList = this.allFormData.AVAILABILITY.slotList;
+    this.obj  = localStorage.getItem('userData');
+    this.dataVal = JSON.parse(this.obj);
   }
 
   setValue(slot: string){
@@ -40,17 +44,18 @@ export class AVAILABILITYComponent implements OnInit {
   }
  
   saveForm(){
+    console.log(JSON.stringify(this.allFormData));
     const id = this.firestore.createId();
       const userDatas = {
         userData: JSON.stringify(this.allFormData),
-        userId: id
+        userId: this.dataVal.userId
       }
       console.log(JSON.stringify(userDatas));
       this.regObj = this.firestore.doc<any>('ENQUETE-USERS-DATA/'+ id);
       this.regObj.set(userDatas);
       if(this.regObj){
         alert('Form submitted');
-        window.location.reload();
+       // window.location.reload();
       }
   }
 }

@@ -9,8 +9,6 @@ import {FormData} from '../model/form-data';
 })
 export class HomeComponent implements OnInit {
   currentPage = 'CONTACT_DETAILS';
-  obj: any;
-
   constructor(private router: Router, public allFormData: FormData) {
 
     if(!localStorage.getItem('userData')){
@@ -18,13 +16,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   changeMenu(tabs: string){
     this.currentPage = tabs;
-  }
-  redirect(event: any){
-    this.currentPage = event;
   }
 
 }

@@ -38,15 +38,4 @@
     </tr>
   </tbody>
 </table>
-
-<div class="row">
-  <div class="col">
-      <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Précédent" (click)="back()">
-  </div>
-  <div class="col"></div>
-  <div class="col"></div>
-
-  <div class="col" *ngIf="!dataVal.isAdmin">
-    <input type="button" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;" (click)="saveForm()">
-  </div>
-</div>
+<button type="button" class="btn btn-primary float-right">Save</button>

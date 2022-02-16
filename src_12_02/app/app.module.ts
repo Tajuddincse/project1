@@ -24,8 +24,6 @@ import { ORGANIZATIONSComponent } from './organizations/organizations.component'
 import { CONSUMPTIONComponent } from './consumption/consumption.component';
 import { VARIOUSComponent } from './various/various.component';
 import { AVAILABILITYComponent } from './availability/availability.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserDataComponent } from './user-data/user-data.component';
 
 
 @NgModule({
@@ -45,8 +43,6 @@ import { UserDataComponent } from './user-data/user-data.component';
     CONSUMPTIONComponent,
     VARIOUSComponent,
     AVAILABILITYComponent,
-    DashboardComponent,
-    UserDataComponent,
   ],
   imports: [
     BrowserModule,

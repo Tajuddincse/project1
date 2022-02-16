@@ -13,7 +13,6 @@ export class AuthComponent implements OnInit {
 
   loginForm: any;
   isError: boolean = false;
-  obj: any;
   constructor(private fb: FormBuilder,
      private router: Router,
      public allFormData: FormData,
@@ -35,13 +34,7 @@ export class AuthComponent implements OnInit {
       this.firestore.collection('ENQUETE-USERS', ref => ref.where('email', '==', formData.email).where('password', '==', formData.password)).valueChanges().subscribe(response=>{
         if(response.length > 0){
           localStorage.setItem('userData', JSON.stringify(response[0]));
-          this.obj  = localStorage.getItem('userData');
-          var dataVal = JSON.parse(this.obj);
-          if(dataVal.isAdmin){
-            this.router.navigateByUrl('/dashboard');
-          } else {
-            this.router.navigateByUrl('/home');
-          }
+          this.router.navigateByUrl('/home');
         } else {
           this.isError = true;
           setTimeout(()=>{

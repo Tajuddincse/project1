@@ -1,0 +1,22 @@
+<div style="padding-top: 20px;">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>View users form</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userData">
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.contact}}</td>
+            <th><button type="button" class="btn btn-link" (click)="viewDetails(user.userId)">View users form</button></th>
+          </tr>
+        </tbody>
+      </table>
+</div>

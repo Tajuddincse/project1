@@ -13,8 +13,6 @@ import { ORGANIZATIONSComponent } from './organizations/organizations.component'
 import { PERSONALDATAComponent } from './personal-data/personal-data.component';
 import { PROFESSIONALDATAComponent } from './professional-data/professional-data.component';
 import { VARIOUSComponent } from './various/various.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserDataComponent } from './user-data/user-data.component';
 
 
 const routes: Routes = [
@@ -31,9 +29,7 @@ const routes: Routes = [
   {path: 'orginization', component:ORGANIZATIONSComponent, pathMatch:'full'},
   {path: 'personal-data', component:PERSONALDATAComponent, pathMatch:'full'},
   {path: 'professional-data', component:PROFESSIONALDATAComponent, pathMatch:'full'},
-  {path: 'various', component:VARIOUSComponent, pathMatch:'full'},
-  {path: 'dashboard', component:DashboardComponent, pathMatch:'full'},
-  {path: 'user-data', component:UserDataComponent, pathMatch:'full'}
+  {path: 'various', component:VARIOUSComponent, pathMatch:'full'}
 ];
 
 @NgModule({

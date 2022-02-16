@@ -1,0 +1,76 @@
+<h4>Mes courses</h4>
+<div class="row">
+  <div class="col">
+    <label>Types d’enseignes où je fais mes courses le plus souvent</label>
+    <ng-select [multiple]="true" [(ngModel)]="selectedTypes">
+      <ng-option *ngFor="let type of types" [value]="type.title">{{type.title}}</ng-option>
+      <ng-option [value]="'custom'">Custom</ng-option>
+    </ng-select>
+  </div>
+
+    <div class="col">
+      <label>Dans quelle(s) enseigne(s) faites-vous le plus souvent vos courses ?</label>
+      <ng-select [multiple]="true" [(ngModel)]="selectedDansQuelle">
+        <ng-option *ngFor="let quelle of dansQuelle" [value]="quelle.title">{{quelle.title}}</ng-option>
+        <ng-option [value]="'custom'">Custom</ng-option>
+      </ng-select>
+    </div>
+
+  <div class="col">
+    <label>Lorsque vous faites vos courses, quels types de marques achetez-vous majoritairement ?</label>
+    <select class="form-control">
+      <option>(choisissez)</option>
+      <option value="1">Locataire</option>
+      <option value="2">Logé à titre gratuit</option>
+      <option value="3">Logé à titre professionnel</option>
+      <option value="4">Logé chez mon conjoint</option>
+      <option value="5">Logé chez ses parents</option>
+      <option value="6">Propriétaire</option>
+      <option value="7">Autre, précisez</option>
+    </select>
+  </div>
+</div>
+<br>
+
+<h4>Mes habitudes de consommation</h4>
+<div class="row">
+  <div class="col">
+    <label>Que pensez-vous des produits bio ?</label>
+    <select class="form-control">
+      <option>(choisissez)</option>
+      <option value="1">Locataire</option>
+      <option value="2">Logé à titre gratuit</option>
+      <option value="3">Logé à titre professionnel</option>
+      <option value="4">Logé chez mon conjoint</option>
+      <option value="5">Logé chez ses parents</option>
+      <option value="6">Propriétaire</option>
+      <option value="7">Autre, précisez</option>
+    </select>
+  </div>
+
+    <div class="col">
+      <label>Avez-vous des spécificités alimentaires ? </label>
+      <ng-select [multiple]="true" [(ngModel)]="selectedAvezVous">
+        <ng-option *ngFor="let vous of avezVous" [value]="vous.title">{{vous.title}}</ng-option>
+        <ng-option [value]="'custom'">Custom</ng-option>
+      </ng-select>
+    </div>
+    <div class="col"></div>
+</div>
+<br>
+<div>
+  <div class="row">
+    <div class="col">
+        <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Précédent">
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+
+    <div class="col">
+      <input type="submit" name="submit" class="btn btn-info btn-md  float-start" value="Enregistrer">
+      <input type="submit" name="submit" class="btn btn-info btn-md  float-end" value="Suivant" style="margin-left: 20px;">
+    </div>
+  </div>
+  </div>
+
+
